@@ -50,8 +50,9 @@ gsCreateProject() {
 		    mv quickstart/* .
 		    rm -rf quickstart
 
-		    echo '----------------------------------------------'
+		    echo '------------------------------------------------'
 		    echo "Project [$projectPath] Created Successfully."
+		    echo '------------------------------------------------'
 		fi
 
 	fi
