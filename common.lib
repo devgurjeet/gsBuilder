@@ -13,11 +13,11 @@ gsHelp() {
 	inputCommand=$1
 	echo "You can create new Project as:"
 	echo '------------------------------------------'		
-	echo "./gsBuilder --create [path] [projectName]"
+	echo "./gsBuilder --createProject [path] [projectName]"
 	echo '------------------------------------------'
 	echo ''
 	echo '------------------------------------------'	
-	echo "e:g; ./gsBuilder --create . testApp"
+	echo "e:g; ./gsBuilder --createProject . testApp"
 	echo '------------------------------------------'
 }
 

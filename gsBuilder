@@ -4,7 +4,7 @@
 # Date        : 02-Mar-2017     													#
 # Author      : Gurjeet Singh.  													#
 # Version     : 0.0.1           													#
-# Description : The gsBuilder makes it easy to create an angular application.		#
+# Description : The gsBuilder makes it easy to create an angular2 application.		#
 #===================================================================================#
 
 # include Library
@@ -22,7 +22,7 @@ case $command in
 	'--help')
 		gsHelp $command;;
 
-	'--create')		
+	'--createProject')		
 		gsCreateProject $projectPath $projectName;;
 	*) 
 		echo "Invalid Command: [${command}]";;	
