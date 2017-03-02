@@ -11,7 +11,14 @@ welcomeMessage() {
 gsHelp() {
 
 	inputCommand=$1
-	echo "You Requested: ${inputCommand}"	
+	echo "You can create new Project as:"
+	echo '------------------------------------------'		
+	echo "./gsBuilder --create [path] [projectName]"
+	echo '------------------------------------------'
+	echo ''
+	echo '------------------------------------------'	
+	echo "e:g; ./gsBuilder --create . testApp"
+	echo '------------------------------------------'
 }
 
 gsCreateProject() {
@@ -42,7 +49,7 @@ gsCreateProject() {
 		    
 		    mv quickstart/* .
 		    rm -rf quickstart
-		    
+
 		    echo '----------------------------------------------'
 		    echo "Project [$projectPath] Created Successfully."
 		fi
