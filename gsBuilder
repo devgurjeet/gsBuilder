@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#===================================================================================#
+# Date        : 02-Mar-2017     													#
+# Author      : Gurjeet Singh.  													#
+# Version     : 0.0.1           													#
+# Description : The gsBuilder makes it easy to create an angular application.		#
+#===================================================================================#
+
+# include Library
+. ./common.lib
+
+# calling welcomeMessage function.
+welcomeMessage
+
+#get the command form Command Line
+command=$1
+projectPath=$2
+projectName=$3
+
+case $command in
+	'--help')
+		gsHelp $command;;
+
+	'--create')		
+		gsCreateProject $projectPath $projectName;;
+	*) 
+		echo "Invalid Command: [${command}]";;	
+esac

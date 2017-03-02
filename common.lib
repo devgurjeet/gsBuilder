@@ -1,0 +1,51 @@
+
+welcomeMessage() {
+	echo '------------------------------------------'
+	echo 'Welcome to gsBuilder 0.0.1'
+	echo ''
+	echo 'For Help: [gsBuilder --help {command}]'
+	echo '------------------------------------------'
+	echo ''
+}
+
+gsHelp() {
+
+	inputCommand=$1
+	echo "You Requested: ${inputCommand}"	
+}
+
+gsCreateProject() {
+	
+	path=$1
+	projectName=$2
+
+	projectPath="$path/$projectName"
+
+
+	if [ "$path" ==  "" ]; then		
+		echo "Invalid Path: [$path]"
+		exit;
+	elif [ "$projectName" ==  "" ]; then
+		echo "Invalid ProjectName: [$projectName]"
+		exit;
+	else	
+		echo "Creating Project [${projectPath}], Please wait..."
+		echo ''
+		
+		if [ -d $projectPath ]
+		then
+		    echo "Project [$projectPath] already exists"
+		else
+		    mkdir -p $projectPath
+		    cd $projectPath
+		    git clone 'https://github.com/angular/quickstart'
+		    
+		    mv quickstart/* .
+		    rm -rf quickstart
+		    
+		    echo '----------------------------------------------'
+		    echo "Project [$projectPath] Created Successfully."
+		fi
+
+	fi
+}
