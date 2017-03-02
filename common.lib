@@ -57,3 +57,32 @@ gsCreateProject() {
 
 	fi
 }
+
+
+gsCreateComponent() {
+
+	path=$1
+	componentName=$2
+
+	componentPath="$path/$componentName"
+
+	if [ "$path" ==  "" ]; then		
+		echo "Invalid Path: [$path]"
+		exit;
+	elif [ "$componentName" ==  "" ]; then
+		echo "Invalid componentName: [$componentName]"
+		exit;
+	else	
+		
+		if [ -d $componentPath ]
+		then
+		    echo "Component [$componentPath] already exists"
+		else
+			mkdir -p $componentPath
+		    echo '------------------------------------------------'
+			echo "component created: [$componentPath] Successfully."						
+			echo '------------------------------------------------'
+		fi
+		
+	fi	
+}

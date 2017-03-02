@@ -19,11 +19,15 @@ projectPath=$2
 projectName=$3
 
 case $command in
+	
 	'--help')
 		gsHelp $command;;
 
 	'--createProject')		
 		gsCreateProject $projectPath $projectName;;
+
+	'--createComponent')		
+		gsCreateComponent $projectPath $projectName;;	
 	*) 
 		echo "Invalid Command: [${command}]";;	
 esac
