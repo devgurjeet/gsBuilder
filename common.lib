@@ -11,15 +11,32 @@ welcomeMessage() {
 gsHelp() {
 
 	inputCommand=$1
-	echo "You can create new Project as:"
-	echo '------------------------------------------'		
-	echo "./gsBuilder --createProject [path] [projectName]"
-	echo '------------------------------------------'
+	
 	echo ''
-	echo '------------------------------------------'	
+	echo '---------------------------------------------------------------'
+	echo "## Generating new Component:"	
+	echo "Command: ./gsBuilder --createProject [path] [projectName]"	
+	echo ''	
 	echo "e:g; ./gsBuilder --createProject . testApp"
-	echo '------------------------------------------'
+	echo '---------------------------------------------------------------'
+
+	echo ''
+	echo '---------------------------------------------------------------'		
+	echo "## Generating new Component:"
+	echo "Command: ./gsBuilder --createComponent [path] [componentName]"	
+	echo ''	
+	echo "e:g; ./gsBuilder --createComponent . testComponent"
+	echo '---------------------------------------------------------------'
+
+	echo ''
+	echo '---------------------------------------------------------------'		
+	echo "## Generating new Service:"
+	echo "Command: ./gsBuilder --createService [path] [ServiceName]"	
+	echo ''	
+	echo "e:g; ./gsBuilder --createService . testService"
+	echo '---------------------------------------------------------------'
 }
+
 
 gsCreateProject() {
 	
