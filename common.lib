@@ -79,8 +79,79 @@ gsCreateComponent() {
 		    echo "Component [$componentPath] already exists"
 		else
 			mkdir -p $componentPath
+			cd $componentPath
+
+			filename="$componentName.component.ts"
+			touch $filename
+
+			componentStart="$(echo "$componentName" | sed 's/.*/\u&/')"
+			componentEnd="Component"			
+
+			componentClass=$componentStart$componentEnd
+			echo "import { Component } from '@angular/core';" >> $filename
+			echo "" >> $filename
+
+			echo "@Component({"                          >> $filename
+			echo "	selector: 'my-$componentName',"      >> $filename
+			echo "	template: '<h1>$componentName</h1>'" >> $filename
+			echo "})"                                    >> $filename
+			echo "export class $componentClass {}"       >> $filename
+
+
 		    echo '------------------------------------------------'
-			echo "component created: [$componentPath] Successfully."						
+			echo "component created: [$componentPath] Successfully.	"						
+			echo '------------------------------------------------'
+		fi
+		
+	fi	
+}
+
+gsCreateService() {
+
+	path=$1
+	serviceName=$2
+
+	servicePath="$path/$serviceName"
+	filename="$serviceName.service.ts"
+
+	filepath="$servicePath/$filename"
+
+	if [ "$path" ==  "" ]; then		
+		echo "Invalid Path: [$path]"
+		exit;
+	elif [ "$serviceName" ==  "" ]; then
+		echo "Invalid serviceName: [$serviceName]"
+		exit;
+	else	
+		
+		if [ -e "$filepath" ]; then
+		    echo "service [$filepath] already exists"
+		else
+
+			if [ -d $servicePath ]; then
+				echo "Service Directoy [$servicePath] already Exists"				
+			else
+				echo "Creating Service Directoy [$servicePath]"
+				mkdir -p $servicePath
+			fi
+				
+			cd $servicePath
+
+			touch $filename
+
+			serviceStart="$(echo "$serviceName" | sed 's/.*/\u&/')"
+			serviceEnd="Service"			
+
+			serviceClass=$serviceStart$serviceEnd
+			
+			echo "import { Injectable } from '@angular/core';" >> $filename
+			echo ""                                            >> $filename
+			echo "@Injectable()"                               >> $filename
+			echo "export class $serviceClass {"                >> $filename
+			echo "}"                                           >> $filename
+			
+		    echo '------------------------------------------------'
+			echo "service created: [$servicePath] Successfully.	"						
 			echo '------------------------------------------------'
 		fi
 		
